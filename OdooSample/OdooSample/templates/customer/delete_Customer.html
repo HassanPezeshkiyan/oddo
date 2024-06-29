@@ -1,0 +1,12 @@
+{%block content%}
+<div class="center">
+	<form method="post" class="card">
+		{% csrf_token %}
+		<h2>حذف مشتری</h2>
+		<p>آیا از حذف مشتری مطمئن هستید؟</p>
+		<p class="form-buttons">
+			<input type="submit" class="btn btn-primary" value="Delete">
+		</p>
+	</form>
+</div>
+{%endblock content%}
