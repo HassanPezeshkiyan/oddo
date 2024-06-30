@@ -444,7 +444,7 @@
 
 </div>
 <!-- end::header -->
-
+{% block content %}
 <!-- begin::main -->
 <div id="main">
 
@@ -836,7 +836,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="card-title d-flex justify-content-between">
-                                <h6 class="card-title">فروش کلی </h6>
+                                <h6 class="card-title">تعداد کل محصولات</h6>
                                 <div>
                                     <div class="dropdown">
                                         <a href="../templates/#" data-toggle="dropdown" aria-haspopup="true"
@@ -851,7 +851,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h2 class="mb-3 font-weight-bold">469,453</h2>
+                            <h2 class="mb-3 font-weight-bold">{{productCount}}</h2>
                             <div class="progress mb-3" style="height: 10px">
                                 <div class="progress-bar w-25 bg-secondary-gradient" role="progressbar"></div>
                                 <div class="progress-bar w-50 bg-info-gradient" role="progressbar"></div>
@@ -1193,120 +1193,25 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h6 class="card-title d-flex justify-content-between">
-                                        <span>توزیع درآمد</span>
-                                        <span class="dropdown">
-                                            <a class="btn btn-outline-light btn-sm dropdown-toggle" href="../templates/#"
-                                               data-toggle="dropdown">آمریکا</a>
-                                            <span class="dropdown-menu dropdown-menu-right">
-                                                <a href="../templates/#" class="dropdown-item">ایران</a>
-                                                <a href="../templates/#" class="dropdown-item">آلمان</a>
-                                                <a href="../templates/#" class="dropdown-item">فرانسه</a>
-                                                <a href="../templates/#" class="dropdown-item">ایتالیا</a>
-                                            </span>
-                                        </span>
+                                        <span>دسته بندی ها</span>
                                     </h6>
-                                    <div id="vmap_usa_en" style="height: 300px"></div>
+                                    
                                     <div class="table-responsive mt-5">
                                         <table class="table table-borderless table-striped mb-0">
                                             <thead>
                                             <tr>
-                                                <th class="wd-40">وضعیت</th>
-                                                <th class="wd-25 text-center">سفارشات</th>
-                                                <th class="wd-35 text-center">درآمد</th>
+                                                <th class="wd-40">نام دسته بندی</th>
+                                                <th class="wd-25 text-center">توضیحات دسته بندی</th>
                                                 <th class="wd-35"></th>
                                             </tr>
                                             </thead>
                                             <tbody>
+                                                {% for category in categories %}
                                             <tr>
-                                                <td>کالیفرنیا</td>
-                                                <td class="text-center">12,201</td>
-                                                <td class="text-center text-success">150,200.80</td>
-                                                <td class="text-right">
-                                                    <a href="../templates/#" data-toggle="tooltip" title="جزییات">
-                                                        <i class="fa fa-external-link"></i>
-                                                    </a>
-                                                </td>
+                                                <td>{{category.Name}}</td>
+                                                <td class="text-center">{{category.Detail}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>تگزاس</td>
-                                                <td class="text-center">11,950</td>
-                                                <td class="text-center text-success">138,910.20</td>
-                                                <td class="text-right">
-                                                    <a href="../templates/#" data-toggle="tooltip" title="جزییات">
-                                                        <i class="fa fa-external-link"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>وومینگ</td>
-                                                <td class="text-center">11,198</td>
-                                                <td class="text-center text-danger">132,050.00</td>
-                                                <td class="text-right">
-                                                    <a href="../templates/#" data-toggle="tooltip" title="جزییات">
-                                                        <i class="fa fa-external-link"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>فلوریدا</td>
-                                                <td class="text-center">9,885</td>
-                                                <td class="text-center text-success">127,762.10</td>
-                                                <td class="text-right">
-                                                    <a href="../templates/#" data-toggle="tooltip" title="جزییات">
-                                                        <i class="fa fa-external-link"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>نیویورک</td>
-                                                <td class="text-center">21,198</td>
-                                                <td class="text-center text-danger">432,410.00</td>
-                                                <td class="text-right">
-                                                    <a href="../templates/#" data-toggle="tooltip" title="جزییات">
-                                                        <i class="fa fa-external-link"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>مانتانا</td>
-                                                <td class="text-center">2,885</td>
-                                                <td class="text-center text-success">7,100.00</td>
-                                                <td class="text-right">
-                                                    <a href="../templates/#" data-toggle="tooltip" title="جزییات">
-                                                        <i class="fa fa-external-link"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>آرکازاس</td>
-                                                <td class="text-center">1,298</td>
-                                                <td class="text-center text-success">2,310.50</td>
-                                                <td class="text-right">
-                                                    <a href="../templates/#" data-toggle="tooltip" title="جزییات">
-                                                        <i class="fa fa-external-link"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>کنساس</td>
-                                                <td class="text-center">5,900</td>
-                                                <td class="text-center text-danger">97,500.00</td>
-                                                <td class="text-right">
-                                                    <a href="../templates/#" data-toggle="tooltip" title="جزییات">
-                                                        <i class="fa fa-external-link"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>کلورادو</td>
-                                                <td class="text-center">15,900</td>
-                                                <td class="text-center text-danger">397,371.32</td>
-                                                <td class="text-right">
-                                                    <a href="../templates/#" data-toggle="tooltip" title="جزییات">
-                                                        <i class="fa fa-external-link"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>
@@ -1314,209 +1219,7 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="card-title">کارهای روزانه</h6>
-                                        <div>
-                                            <a href="../templates/#" class="mr-3">
-                                                <i class="fa fa-refresh"></i>
-                                            </a>
-                                            <div class="dropdown">
-                                                <a href="../templates/#" data-toggle="dropdown" aria-haspopup="true"
-                                                   aria-expanded="false">
-                                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                                </a>
-                                                <span class="dropdown-menu dropdown-menu-left">
-                                                    <a href="../templates/#" class="dropdown-item">گزارش</a>
-                                                    <a href="../templates/#" class="dropdown-item">دانلود</a>
-                                                    <a href="../templates/#" class="dropdown-item">بستن</a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-control custom-checkbox-success custom-checkbox todo-item">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                               for="customCheck1">صحبت با کاربران جدید
-                                            <span class="text-muted">13 فروردین 1399</span>
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox-success custom-checkbox-success custom-checkbox todo-item">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck2" checked>
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                               for="customCheck2">کاربران قدیمی به زودی حذف میشوند
-                                            <span class="text-muted">20 فروردین 1399</span>
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox-success custom-checkbox todo-item">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                               for="customCheck3">واگذاری 
-                                            تکمیل شده
-                                            <span class="text-muted">13 فروردین 1399</span>
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox-success custom-checkbox todo-item">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck4" checked>
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                               for="customCheck4">نظرات خریدار
-                                            <span class="text-muted">10 فروردین 1398</span>
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox-success custom-checkbox todo-item">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                               for="customCheck5">حذف بک آپ های قبلی
-                                            <span class="text-muted">13 فروردین 1399</span>
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox custom-checkbox-success todo-item">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                               for="customCheck6">صحبت با کاربران جدید
-                                            <span class="text-muted">27 فروردین 1399</span>
-                                        </label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox-success custom-checkbox todo-item">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck7" checked>
-                                        <label class="custom-control-label d-flex justify-content-between"
-                                               for="customCheck7">کاربران قدیمی به زودی حذف میشوند
-                                            <span class="text-muted">13 فروردین 1399</span>
-                                        </label>
-                                    </div>
-                                    <form class="mt-4">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control"
-                                                   aria-label="Example text with button addon"
-                                                   placeholder="کار جدید" aria-describedby="button-addon1">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="button" id="button-addon1">افزودن
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title">کاربر واگذاری شده به من</h6>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item d-flex align-items-center p-l-r-0">
-                                            <div>
-                                                <figure class="avatar avatar-state-success m-r-15">
-                                                    <img src="../templates/assets/media/image/user/man_avatar5.jpg"
-                                                         class="rounded-circle" alt="image">
-                                                </figure>
-                                            </div>
-                                            <div>
-                                                <h6 class="m-b-0">وحید موحد</h6>
-                                                <small class="text-muted">مهندس</small>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <span class="badge badge-danger mr-2 d-sm-inline d-none">رد شده</span>
-                                                <div class="dropdown">
-                                                    <a href="../templates/#" data-toggle="dropdown"
-                                                       class="btn btn-outline-light btn-sm"
-                                                       aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-left">
-                                                        <a href="../templates/#" class="dropdown-item">مشاهده</a>
-                                                        <a href="../templates/#" class="dropdown-item">ارسال پیام</a>
-                                                        <a href="../templates/#" class="dropdown-item">واگذاری </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item d-flex align-items-center p-l-r-0">
-                                            <div>
-                                                <figure class="avatar avatar-state-success m-r-15">
-                                                    <img src="../templates/assets/media/image/user/women_avatar3.jpg"
-                                                         class="rounded-circle" alt="image">
-                                                </figure>
-                                            </div>
-                                            <div>
-                                                <h6 class="m-b-0">شادی بخش</h6>
-                                                <small class="text-muted">مشاور منابع انسانی</small>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <span class="badge badge-success mr-2 d-sm-inline d-none">تکمیل شده</span>
-                                                <div class="dropdown">
-                                                    <a href="../templates/#" data-toggle="dropdown"
-                                                       class="btn btn-outline-light btn-sm"
-                                                       aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-left">
-                                                        <a href="../templates/#" class="dropdown-item">مشاهده</a>
-                                                        <a href="../templates/#" class="dropdown-item">ارسال پیام</a>
-                                                        <a href="../templates/#" class="dropdown-item">واگذاری </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item d-flex align-items-center p-l-r-0">
-                                            <div>
-                                                <figure class="avatar avatar-state-success m-r-15">
-                                                    <span class="avatar-title bg-secondary rounded-circle">م</span>
-                                                </figure>
-                                            </div>
-                                            <div>
-                                                <h6 class="m-b-0">ملانی محب</h6>
-                                                <small class="text-muted">مشاور</small>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <span class="badge badge-warning mr-2 d-sm-inline d-none">در انتظار</span>
-                                                <div class="dropdown">
-                                                    <a href="../templates/#" data-toggle="dropdown"
-                                                       class="btn btn-outline-light btn-sm"
-                                                       aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-left">
-                                                        <a href="../templates/#" class="dropdown-item">مشاهده</a>
-                                                        <a href="../templates/#" class="dropdown-item">ارسال پیام</a>
-                                                        <a href="../templates/#" class="dropdown-item">واگذاری </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item d-flex align-items-center p-l-r-0">
-                                            <div>
-                                                <figure class="avatar avatar-state-success m-r-15">
-                                                    <img src="../templates/assets/media/image/user/women_avatar1.jpg"
-                                                         class="rounded-circle" alt="image">
-                                                </figure>
-                                            </div>
-                                            <div>
-                                                <h6 class="m-b-0">سمانه محمدی</h6>
-                                                <small class="text-muted">مهندس</small>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <span class="badge badge-danger mr-2 d-sm-inline d-none">رد شده</span>
-                                                <div class="dropdown">
-                                                    <a href="../templates/#" data-toggle="dropdown"
-                                                       class="btn btn-outline-light btn-sm"
-                                                       aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-left">
-                                                        <a href="../templates/#" class="dropdown-item">مشاهده</a>
-                                                        <a href="../templates/#" class="dropdown-item">ارسال پیام</a>
-                                                        <a href="../templates/#" class="dropdown-item">واگذاری </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="mt-3 text-center">
-                                        <a href="../templates/#">
-                                            دیدن همه
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -1545,6 +1248,7 @@
     <!-- end::main-content -->
 
 </div>
+{% endblock %}
 <!-- end::main -->
 
 <!-- Plugin scripts -->

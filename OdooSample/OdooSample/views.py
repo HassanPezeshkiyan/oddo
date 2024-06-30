@@ -5,7 +5,13 @@ from .forms import *
 
 
 def Index(request):
-    return render(request,'index.html')
+    productCount = Product.objects.count()
+    categories = Category.objects.all()
+    print(categories)
+    return render(request,'index.html',context={
+        'productCount':productCount,
+        'categories':categories
+    })
 
 
 
