@@ -1,7 +1,17 @@
 from django import forms
 from .models import *
 
+class LoginForm(forms.Form):
+    user_name = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'نام کاربری خود را وارد نمایید', 'class': 'form-control valid'}),
+        label="نام کاربری"
+    )
 
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'placeholder': 'رمز عبور خود را وارد نمایید', 'class': 'form-control valid'}),
+        label="رمز عبور",
+       
+    )
 class CreateProductForm(forms.ModelForm):
     Name = forms.CharField(
         widget=forms.TextInput(
@@ -123,5 +133,5 @@ class CreateDeliverForm(forms.ModelForm):
     ))
    
     class Meta:
-        model = DeliverCo
+        model = Deliver
         fields = ['Name', 'ContactNumber', 'DeliverType']

@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <div class="card-title d-md-flex align-items-start justify-content-between">
-                    <h6 class="card-title">لیست ارسال کنندگان</h6>
+                    <h6 class="card-title">لیست محصولات</h6>
+                        <form name="myform" method="GET" action="{% url 'search' %}">  
+                            <input type="text" name="search" placeholder="Search" />
+                        </form> 
                     <div class="reportrange btn btn-outline-light btn-sm mt-3 mt-md-0">
                         <i class="ti-calendar mr-2"></i>
                         <span class="text"></span>
@@ -19,26 +21,28 @@
                             <table class="table table-striped mb-0">
                                 <thead>
                                 <tr>
-                                    <th class="text-center">نام دسته بندی</th>
-                                    <th class="text-center">توضیحات دسته بندی</th>
-                                    <th class="text-center">شناسه</th>
-                                    <th class="text-right">عملیات</th>
+                                    <th class="text-center">نام محصول</th>
+                                    <th class="text-center">قیمت واحد</th>
+                                    <th class="text-center">دسته بندی</th>
+                                    <th class="text-center">تامین کننده</th>
+                                    <th class="text-center">عملیات</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    {% for category in object_list %}
+                                    {% for product in search %}
                                 <tr>
                                     <td class="text-center">
-                                        <a href="{% url 'category-detail' category.id %}">
-                                            {{category.Name}}
+                                        <a href="{% url 'product-detail' product.id %}">
+                                            {{product.Name}}
                                         </a>
                                     </td>
-                                    <td class="text-success text-center">{{category.Detail}}</td>
-                                    <td class="text-success text-center">{{category.id}}</td>
+                                    <td class="text-success text-center">{{product.FeePrice}}</td>
+                                    <td class="text-success text-center">{{product.CategoryId}}</td>
+                                    <td class="text-success text-center">{{product.SupplierId}}</td>
                                     <td>
-                                        <a class="text-danger text-center" type="btn" href="{% url 'category-delete' category.id %}">حذف</a> /
-                                        <a class="text-warning text-center" type="btn" href="{% url 'category-update' category.id %}">ویرایش</a>
+                                        <a class="text-danger text-center" type="btn" href="{% url 'product-delete' product.id %}">حذف</a> /
+                                        <a class="text-warning text-center" type="btn" href="{% url 'product-update' product.id %}">ویرایش</a>
                                     </td>
                                 </tr>
                                 {% endfor %}
@@ -57,7 +61,7 @@
                                         <i class="fa fa-bar-chart"></i>
                                     </div>
                                     <div>
-                                        <a class="text-uppercase font-size-11" href="/category/create">اضافه کردن دسته بندی</h6>
+                                        <a class="text-uppercase font-size-11" href="/product/create">اضافه کردن محصول</h6>
                                     </div>
                                 </div>
                             </div>

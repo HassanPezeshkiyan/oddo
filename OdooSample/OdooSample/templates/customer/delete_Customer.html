@@ -1,5 +1,6 @@
-{%block content%}
-<div class="center">
+{% extends 'base.html' %}
+
+{% block content %}
 	<form method="post" class="card">
 		{% csrf_token %}
 		<h2>حذف مشتری</h2>
@@ -8,5 +9,4 @@
 			<input type="submit" class="btn btn-primary" value="Delete">
 		</p>
 	</form>
-</div>
-{%endblock content%}
+{% endblock %}

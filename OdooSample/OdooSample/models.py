@@ -45,7 +45,7 @@ class Customer(models.Model):
     def __str__(self) -> str:
        return self.FirstName + ' ' + self.LastName
 
-class DeliverCo(models.Model):
+class Deliver(models.Model):
     Name = models.CharField(max_length=100,blank=False)
     ContactNumber = models.CharField(max_length=11,blank=False)
     DeliverType = models.CharField(max_length=250,blank=False)
@@ -57,10 +57,10 @@ class DeliverCo(models.Model):
 class Order(models.Model):
     CustomerId = models.ForeignKey(Customer, on_delete=models.DO_NOTHING)
     EmployeeId = models.ForeignKey(Employee,  on_delete=models.DO_NOTHING)
-    DeliveryTypeId = models.ForeignKey(DeliverCo, on_delete=models.DO_NOTHING)
+    DeliveryTypeId = models.ForeignKey(Deliver, on_delete=models.DO_NOTHING)
     
     def __str__(self) -> str:
-       return 'order' + self.Id
+       return 'order' + str(self.id)
 
 
 
@@ -68,10 +68,9 @@ class OrderDetail(models.Model):
     ProductId = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
     OrderId = models.ForeignKey(Order, on_delete=models.DO_NOTHING)
     Count = models.PositiveBigIntegerField(blank=False)
-    FeePrice = models.PositiveBigIntegerField(blank=False)
     
     def __str__(self) -> str:
-       return 'OrderDetail' + self.Id
+       return 'OrderDetail' + str(self.id)
    
    
    

@@ -19,27 +19,16 @@
                             <table class="table table-striped mb-0">
                                 <thead>
                                 <tr>
-                                    <th class="text-center">نام دسته بندی</th>
-                                    <th class="text-center">توضیحات دسته بندی</th>
-                                    <th class="text-center">شناسه</th>
-                                    <th class="text-right">عملیات</th>
+                                    <th class="text-center">نام ارسال کننده</th>
+                                    <th class="text-center">شماره تماس</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    {% for category in object_list %}
+                                    {% for deliver in object_list %}
                                 <tr>
-                                    <td class="text-center">
-                                        <a href="{% url 'category-detail' category.id %}">
-                                            {{category.Name}}
-                                        </a>
-                                    </td>
-                                    <td class="text-success text-center">{{category.Detail}}</td>
-                                    <td class="text-success text-center">{{category.id}}</td>
-                                    <td>
-                                        <a class="text-danger text-center" type="btn" href="{% url 'category-delete' category.id %}">حذف</a> /
-                                        <a class="text-warning text-center" type="btn" href="{% url 'category-update' category.id %}">ویرایش</a>
-                                    </td>
+                                    <td class="text-center">{{deliver.Name}}</td>
+                                    <td class="text-success text-center">{{deliver.ContactNumber}}</td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>
@@ -57,7 +46,7 @@
                                         <i class="fa fa-bar-chart"></i>
                                     </div>
                                     <div>
-                                        <a class="text-uppercase font-size-11" href="/category/create">اضافه کردن دسته بندی</h6>
+                                        <a class="text-uppercase font-size-11" href="/deliver/create">اضافه کردن ارسال کننده</h6>
                                     </div>
                                 </div>
                             </div>

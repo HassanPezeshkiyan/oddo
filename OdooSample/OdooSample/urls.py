@@ -14,18 +14,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from django.contrib.auth.decorators import permission_required
 from django.contrib import admin
 from django.urls import path
 from .views import *
 
+
+
 urlpatterns = [
+    path('login/', login_user,name='login'),
     path('', Index,name='index'),
     path("admin/", admin.site.urls),
-    
+    path('search/',search, name='search'),
     path("order/", OrderListView.as_view(),name ='order-list'),
     path("orderDetails/", OrderDetailListView.as_view(),name ='orderDetail-list'),
     
-    path("products/", ProductListView.as_view(),name ='proudct-list'),
+    path("products/",ProductListView.as_view(),name ='proudct-list'),
     path("product/create", CreateProduct.as_view(), name = 'product-create'),
     path("product/update/<int:pk>", ProductUpdate.as_view(), name = 'product-update'),
     path("product/delete/<int:pk>", ProductDelete.as_view(), name = 'product-delete'),
@@ -55,8 +60,8 @@ urlpatterns = [
     path("supplier/delete/<int:pk>", SupplierDelete.as_view(), name = 'supplier-delete'),
     path("supplier/<int:pk>", SupplierDetail.as_view(), name = 'supplier-detail'),
     
-    path("delivers/", DeliverCoListView.as_view(),name ='deliver-list'),
-    path("deliver/create", CreateDeliverCo.as_view(), name = 'deliver-create'),
+    path("delivers/", DeliverListView.as_view(),name ='deliver-list'),
+    path("deliver/create", CreateDeliver.as_view(), name = 'deliver-create'),
     path("deliver/update/<int:pk>", DeliverUpdate.as_view(), name = 'deliver-update'),
     path("deliver/delete/<int:pk>", DeliverDelete.as_view(), name = 'deliver-delete'),
     path("deliver/<int:pk>", DeliverDetail.as_view(), name = 'deliver-detail'),
