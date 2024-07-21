@@ -6,7 +6,7 @@ from .forms import *
 from django.db.models import Sum
 from django.contrib.auth.decorators import permission_required, login_required
 from django.utils.decorators import method_decorator
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 
 
@@ -102,7 +102,10 @@ class SupplierListView(ListView):
     model = Supplier
     
 
-class CreateProduct(CreateView):
+class CreateProduct(PermissionRequiredMixin, CreateView):
+    permission_required = ['product.add_product']
+    login_url = '/login'
+    redirect_field_name = 'redirect_to'
     model = Product
     template_name = 'product/add_Product.html'
     form_class = CreateProductForm
