@@ -24,6 +24,7 @@ from .views import *
 
 urlpatterns = [
     path('login/', login_user,name='login'),
+    path('logout/', logout_view,name='logout'),
     path('', Index,name='index'),
     path("admin/", admin.site.urls),
     path('search/',search, name='search'),

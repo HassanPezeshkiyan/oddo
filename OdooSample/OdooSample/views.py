@@ -29,6 +29,14 @@ def login_user(request):
             login_form.add_error('user_name', 'کاربری با مشخصات وارد شده یافت نشد')
     return render(request, 'login.html', context)
 
+
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
+
 def Index(request):
 
     products = Product.objects.all()
